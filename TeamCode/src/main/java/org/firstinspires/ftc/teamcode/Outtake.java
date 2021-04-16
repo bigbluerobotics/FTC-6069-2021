@@ -42,11 +42,11 @@ public class Outtake {
     }
 
     public void outtake(){
-        flywheel.setPower(0.9);
+        flywheel.setPower(0.2);
     }
 
     public void outtake_in(){
-        flywheel.setPower(0.2);
+        flywheel.setPower(0.3);
     }
 
     public void pushRing()

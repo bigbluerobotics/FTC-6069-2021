@@ -105,6 +105,7 @@ public class DriveMain extends OpMode
     public void init() {
         telemetry.addData("Status", "Initializing");
         mecanumDrive = new MecanumDrive(hardwareMap);
+        mecanumDrive.leftMotorIsBroken = 8;
         outtake = new Outtake(hardwareMap);
         intake = new Intake(hardwareMap);
         offsetAngle = 0;

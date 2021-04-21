@@ -160,7 +160,7 @@ public class DriveMain extends OpMode
         telemetry.addData("robot angle", robotAngle);
         robotAngle += offsetAngle / 180.0 * Math.PI;
         double rightX = -gamepad1.right_stick_x;
-        mecanumDrive.polarMove(robotAngle, rightX, 0.8 * direc * speed * magnitude);
+        mecanumDrive.polarMove(robotAngle, rightX, 0.5 * direc * speed * magnitude);
         //telemetry.addData("Status", "Run Time: " + runtime.toString());
         //telemetry.addData("Position", wobbleMech.getPosition());
 //        System.out.println(wobbleMech.getTargetPosition());
@@ -229,6 +229,23 @@ public class DriveMain extends OpMode
             if (currentButtonStates[9]) {
                 direc *= -1;
             }
+        } if (previousButtonStates[10] != currentButtonStates[10]) {
+            if(currentButtonStates[10]){
+                mecanumDrive.encoderTurn(10, 0.5);
+            }
+            else{
+                mecanumDrive.brake();
+            }
+
+        }
+
+        if (previousButtonStates[11] != currentButtonStates[11]) {
+            if(currentButtonStates[11]){
+                mecanumDrive.encoderTurn(-10, 0.5);
+            }
+            else{
+                mecanumDrive.brake();
+            }
         }
 
         previousButtonStates = currentButtonStates;
@@ -268,7 +285,9 @@ public class DriveMain extends OpMode
           gamepad2.b, // turn flywheel off
           // gamepad1.back,
           gamepad2.dpad_down, // reverse intake
-          gamepad1.a  // toggle direction
+          gamepad1.a,  // toggle direction]
+                gamepad1.dpad_left, //turn left slow
+                gamepad1.dpad_right //turn right slow
         };
 
         return buttonList;

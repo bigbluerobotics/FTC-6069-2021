@@ -203,9 +203,9 @@ public class AutoBlue extends LinearOpMode {
         outtake.stop();
         sleep(1000);
 
-        mecanumDrive.moveEncoderStraight(100, 0.5);
+        mecanumDrive.moveEncoderStraight(90, 0.5);
 
-        sleep(500);
+        sleep(450);
         mecanumDrive.brake();
         sleep(1000);
         wobbleMech.down();
